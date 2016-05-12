@@ -1,0 +1,97 @@
+package com.seversion.found.ui.presenters
+
+import android.content.SharedPreferences
+import android.content.res.Resources
+import com.hannesdorfmann.mosby.mvp.MvpBasePresenter
+import com.seversion.found.FoundApplication
+import com.seversion.found.R
+import com.seversion.found.data.LocationManager
+import com.seversion.found.data.WifiNetworkManager
+import com.seversion.found.data.models.Location
+import com.seversion.found.ui.adapters.LocationAdapter
+import com.seversion.found.ui.views.LearnView
+import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.error
+import org.jetbrains.anko.info
+import rx.Observable
+import rx.android.schedulers.AndroidSchedulers
+import rx.schedulers.Schedulers
+import rx.subscriptions.CompositeSubscription
+import java.util.concurrent.TimeUnit
+import javax.inject.Inject
+
+/**
+ * Created by Daniel on 2016-05-02.
+ */
+
+class LearnPresenter : MvpBasePresenter<LearnView>(), LocationAdapter.SelectionListener, AnkoLogger {
+
+    @Inject
+    lateinit var wifiNetworkManager: WifiNetworkManager
+
+    @Inject
+    lateinit var locationManager: LocationManager
+
+    @Inject
+    lateinit var resources: Resources
+
+    @Inject
+    lateinit var sharedPreferences: SharedPreferences
+
+    private val compositeSubscription = CompositeSubscription()
+
+    private var locations: MutableList<Location> = mutableListOf()
+
+    init {
+        FoundApplication.graph.inject(this)
+    }
+
+    fun loadLocations() {
+        val savedLocations = sharedPreferences.getStringSet(resources.getString(R.string.settings_key_locations), setOf())
+        locations.clear()
+        locations.addAll(savedLocations.map { Location(it) })
+        view?.setLocations(locations)
+    }
+
+    fun addLocation(name: String) {
+        if (name != "") {
+            locations.add(Location(name))
+            view?.setLocations(locations)
+            saveLocations()
+        }
+    }
+
+    override fun onSelect(location: Location): Boolean {
+        onDeselect()
+
+        val sub = Observable.interval(3L, TimeUnit.SECONDS, Schedulers.io())
+                .doOnNext {
+                    wifiNetworkManager.blockReceiver = true
+                    wifiNetworkManager.scan()
+                }
+                .flatMap { Observable.timer(1L, TimeUnit.SECONDS) }
+                .flatMap { locationManager.submitFingerprints(location.name) }
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ result ->
+                    info("yay")
+                }, { throwable ->
+                    error("Problem submitting fingerprints", throwable)
+                    view?.showError(throwable.message ?: resources.getString(R.string.main_error_unknown), throwable is LocationManager.NoSettingsException || throwable is LocationManager.UnknownErrorException)
+                })
+        compositeSubscription.add(sub)
+        return true
+    }
+
+    override fun onDeselect() {
+        compositeSubscription.clear()
+    }
+
+    private fun saveLocations() {
+        var newLocations = emptySet<String>()
+        for ((location) in locations) {
+            newLocations += location
+        }
+        sharedPreferences.edit().putStringSet(resources.getString(R.string.settings_key_locations), newLocations).apply()
+    }
+
+}

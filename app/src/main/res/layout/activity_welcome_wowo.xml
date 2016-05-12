@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    android:id="@+id/root"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="@color/fruit_salad"
+    >
+
+    <com.nightonke.wowoviewpager.WoWoViewPager
+        android:id="@+id/wowo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <!-- Second Screen -->
+
+    <LinearLayout
+        android:id="@+id/serverPage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="32dp"
+        tools:visibility="invisible"
+        >
+
+        <ImageView
+            android:id="@+id/globe"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="32dp"
+            android:layout_marginTop="32dp"
+            android:contentDescription="@string/welcome.label.globe_icon_description"
+            android:src="@drawable/ic_globe"
+            android:tint="@color/white"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/settings.label.server_address"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            />
+
+        <EditText
+            android:id="@+id/serverAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/settings.default.api"
+            android:imeOptions="actionNext"
+            android:inputType="textUri"
+            android:textColor="@color/white"
+            android:textColorHint="@color/gallery"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/welcome.label.server_address_description"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            />
+
+    </LinearLayout>
+
+    <!-- Third Screen -->
+
+    <LinearLayout
+        android:id="@+id/usernamePage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="32dp"
+        tools:visibility="invisible"
+        >
+
+        <ImageView
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="32dp"
+            android:layout_marginTop="32dp"
+            android:contentDescription="@string/welcome.label.person_icon_description"
+            android:src="@drawable/ic_person_large"
+            android:tint="@color/white"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/settings.label.username"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            />
+
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/settings.hint.username"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:textColor="@color/white"
+            android:textColorHint="@color/gallery"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/welcome.label.username_description"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            />
+
+    </LinearLayout>
+
+    <!-- Third Screen -->
+
+    <LinearLayout
+        android:id="@+id/groupPage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="32dp"
+        tools:visibility="invisible"
+        >
+
+        <ImageView
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="32dp"
+            android:layout_marginTop="32dp"
+            android:contentDescription="@string/welcome.label.group_icon_description"
+            android:src="@drawable/ic_group_large"
+            android:tint="@color/white"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/settings.label.group"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            />
+
+        <EditText
+            android:id="@+id/group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/settings.hint.group"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:textColor="@color/white"
+            android:textColorHint="@color/gallery"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/welcome.label.group_description"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            />
+
+    </LinearLayout>
+
+    <!-- Fourth Screen -->
+
+    <LinearLayout
+        android:id="@+id/permissionPage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="32dp"
+        tools:visibility="visible"
+        >
+
+        <ImageView
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="32dp"
+            android:layout_marginTop="32dp"
+            android:contentDescription="@string/welcome.label.check_icon_description"
+            android:src="@drawable/ic_check_large"
+            android:tint="@color/white"
+            />
+
+        <TextView
+            android:id="@+id/completionHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            tools:text="@string/welcome.label.almost_there"
+            />
+
+        <TextView
+            android:id="@+id/completionBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            tools:text="@string/welcome.label.permission_description"
+            />
+
+        <Button
+            android:id="@+id/completionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:text="@string/welcome.label.sounds_good"
+            />
+
+    </LinearLayout>
+
+    <!-- First Screen (Logo needs to be above everything) -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        tools:visibility="invisible"
+        >
+
+        <View
+            android:id="@+id/logoAligner"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_centerInParent="true"
+            />
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_above="@+id/logoAligner"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="64dp"
+            android:contentDescription="@string/welcome.label.logo_image_description"
+            android:src="@drawable/ic_launcher"
+            android:tint="@color/turquoise_blue"
+            />
+
+        <TextView
+            android:id="@+id/welcomeText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/logo"
+            android:layout_marginTop="-64dp"
+            android:gravity="center"
+            android:maxWidth="400dp"
+            android:padding="32dp"
+            android:text="@string/welcome.label.intro"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            />
+
+        <Button
+            android:id="@+id/letsGo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/welcomeText"
+            android:layout_centerHorizontal="true"
+            android:text="@string/welcome.label.lets_go"
+            />
+
+    </RelativeLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_forward"
+        android:tint="@color/white"
+        tools:ignore="RtlHardcoded"
+        />
+
+</android.support.design.widget.CoordinatorLayout>

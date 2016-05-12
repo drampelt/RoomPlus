@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:key="@string/settings.key.server_settings"
+        android:title="@string/settings.label.server_settings"
+        >
+
+        <EditTextPreference
+            android:hint="@string/settings.hint.username"
+            android:key="@string/settings.key.username"
+            android:summary="@string/settings.label.username_description"
+            android:title="@string/settings.label.username"
+            />
+
+        <EditTextPreference
+            android:hint="@string/settings.hint.group"
+            android:key="@string/settings.key.group"
+            android:summary="@string/settings.label.group_description"
+            android:title="@string/settings.label.group"
+            />
+
+        <EditTextPreference
+            android:hint="@string/settings.default.api"
+            android:key="@string/settings.key.server_address"
+            android:summary="@string/settings.label.server_address_description"
+            android:title="@string/settings.label.server_address"
+            />
+
+    </PreferenceCategory>
+</PreferenceScreen>

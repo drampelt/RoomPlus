@@ -1,0 +1,89 @@
+<resources>
+
+    <!-- App -->
+    <string name="app.label.name">Found</string>
+
+    <!-- Welcome -->
+    <string name="welcome.label.logo_image_description">Pin logo</string>
+    <string name="welcome.label.intro">You\'ll be tracking indoor location very soon! We just need a few details.</string>
+    <string name="welcome.label.lets_go">Let\'s go</string>
+
+    <string name="welcome.label.globe_icon_description">Globe icon</string>
+    <string name="welcome.label.server_address_description">Not sure what this is or want to use the public FIND server? No problem, just leave this blank.</string>
+
+    <string name="welcome.label.person_icon_description">Person icon</string>
+    <string name="welcome.label.username_description">How do you want to identify yourself to the server?</string>
+    
+    <string name="welcome.label.group_icon_description">Group icon</string>
+    <string name="welcome.label.group_description">What do you want to call the set of locations you will be tracking? If you are using the public FIND server, you should make this hard to guess so other users can\'t access your locations.</string>
+
+    <string name="welcome.label.check_icon_description">Check mark icon</string>
+    <string name="welcome.label.almost_there">Almost There!</string>
+    <string name="welcome.label.permission_description">You just need to grant the location permission to start tracking.</string>
+    <string name="welcome.label.all_set">All Set!</string>
+    <string name="welcome.label.ready_description">You\'re ready to start learning and tracking indoor locations.</string>
+
+    <string name="welcome.label.sounds_good">Sounds good</string>
+
+    <string name="welcome.error.invalid_server_address">Please enter a valid server address.</string>
+    <string name="welcome.error.invalid_username">Please enter a username.</string>
+    <string name="welcome.error.invalid_group">Please enter a group.</string>
+
+    <!-- Settings -->
+    <string name="settings.key.welcome_seen">welcome_seen</string>
+    <string name="settings.key.locations">locations</string>
+
+    <string name="settings.key.server_settings">server_settings</string>
+    <string name="settings.label.server_settings">Server Settings</string>
+
+    <string name="settings.key.username">username</string>
+    <string name="settings.hint.username">My Name</string>
+    <string name="settings.label.username_description">Unique name to identify yourself to the FIND server.</string>
+    <string name="settings.label.username">Username</string>
+
+    <string name="settings.key.group">group</string>
+    <string name="settings.hint.group">home</string>
+    <string name="settings.label.group_description">Name of your set of tracked locations. Use something hard to guess if on a public server.</string>
+    <string name="settings.label.group">Group</string>
+
+    <string name="settings.key.server_address">server</string>
+    <string name="settings.default.api">https://ml.internalpositioning.com</string>
+    <string name="settings.label.server_address_description">Leave empty to use the public FIND server.</string>
+    <string name="settings.label.server_address">Server Address</string>
+
+    <!-- Main -->
+    <string name="main.action.settings">Settings</string>
+    <string name="main.label.learn">Learn</string>
+    <string name="main.label.track">Track</string>
+    <string name="main.label.location_permission_required">You need to grant the location permission to use this app.</string>
+    <string name="main.action.open_settings">Open Settings</string>
+    <string name="main.error.no_settings">Please setup your username, group, and server in settings first.</string>
+    <string name="main.error.no_fingerprints">We couldn\'t find any WiFi networks near you. Make sure you have WiFi turned on and granted the app location access.</string>
+    <string name="main.error.no_locations">You haven\'t trained any locations for this group yet. You can do that on the train tab.</string>
+    <string name="main.error.unknown">An unknown error occurred. Check your settings and make sure you have an active internet connection.</string>
+    <string name="main.error.no_response">The FIND server could not locate you, try training it more.</string>
+    <string name="main.error.wifi_disabled">Please make sure your WiFi is enabled.</string>
+
+    <!-- Learn -->
+    <string name="learn.hint.location_name">Location Name</string>
+    <string name="learn.action.location_add">Add</string>
+    <string name="learn.action.location_add_cancel">Cancel</string>
+
+    <!-- Track -->
+    <string name="track.label.current_location">Current Location</string>
+    <string name="track.label.determining">Determining…</string>
+    <string name="track.label.try_again">Try Again</string>
+    <string name="track.label.error">Error</string>
+
+    <!-- Edit Event -->
+    <string name="edit_event.label.enter">enter</string>
+    <string name="edit_event.label.leave">leave</string>
+    <string-array name="edit_event_label_trigger_options">
+        <item>@string/edit_event.label.enter</item>
+        <item>@string/edit_event.label.leave</item>
+    </string-array>
+    <string name="edit_event.label.location">the location</string>
+    <string name="edit_event.label.trigger">Trigger when I</string>
+    <string name="edit_event.label.tasker_blurb">If I %1$s the location %2$s.</string>
+
+</resources>
