@@ -179,32 +179,32 @@ class WelcomeActivity : AppCompatActivity() {
         val backgroundAnimation = ViewAnimation(wowo)
         backgroundAnimation.addPageAnimaition(WoWoBackgroundColorAnimation(
                 0, 0f, 1f,
-                resources.getColor(R.color.apple, theme),
-                resources.getColor(R.color.fruit_salad, theme),
+                ContextCompat.getColor(this, R.color.apple),
+                ContextCompat.getColor(this, R.color.fruit_salad),
                 ColorChangeType.RGB,
                 EaseType.EaseInOutSine,
                 true
         ))
         backgroundAnimation.addPageAnimaition(WoWoBackgroundColorAnimation(
                 1, 0f, 1f,
-                resources.getColor(R.color.fruit_salad, theme),
-                resources.getColor(R.color.shamrock, theme),
+                ContextCompat.getColor(this, R.color.fruit_salad),
+                ContextCompat.getColor(this, R.color.shamrock),
                 ColorChangeType.RGB,
                 EaseType.EaseInOutSine,
                 true
         ))
         backgroundAnimation.addPageAnimaition(WoWoBackgroundColorAnimation(
                 2, 0f, 1f,
-                resources.getColor(R.color.shamrock, theme),
-                resources.getColor(R.color.turquoise_blue, theme),
+                ContextCompat.getColor(this, R.color.shamrock),
+                ContextCompat.getColor(this, R.color.turquoise_blue),
                 ColorChangeType.RGB,
                 EaseType.EaseInOutSine,
                 true
         ))
         backgroundAnimation.addPageAnimaition(WoWoBackgroundColorAnimation(
                 3, 0f, 1f,
-                resources.getColor(R.color.turquoise_blue, theme),
-                resources.getColor(R.color.aquamarine, theme),
+                ContextCompat.getColor(this, R.color.turquoise_blue),
+                ContextCompat.getColor(this, R.color.aquamarine),
                 ColorChangeType.RGB,
                 EaseType.EaseInOutSine,
                 true

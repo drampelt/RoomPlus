@@ -25,6 +25,7 @@
             android:name=".ui.activities.WelcomeActivity"
             android:label="@string/app.label.name"
             android:theme="@style/AppTheme.NoActionBar.TransparentStatusBar"
+            android:windowSoftInputMode="stateHidden"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
