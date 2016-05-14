@@ -79,7 +79,7 @@ dependencies {
     compile 'com.nightonke:wowoviewpager:1.0.2'
 }
 buildscript {
-    ext.kotlin_version = '1.0.1-2'
+    ext.kotlin_version = '1.0.2'
     repositories {
         mavenCentral()
     }
