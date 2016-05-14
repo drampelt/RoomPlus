@@ -47,7 +47,7 @@ class LocationManager(val wifiNetworkManager: WifiNetworkManager, val context: C
                             return@flatMap Observable.error<LearnResponse>(UnknownErrorException(resources.getString(R.string.main_error_unknown)))
                         }
                     } else {
-                        if (type == "track" && response.message.substring(21).length == 0) {
+                        if (type == "track" && response.message.substring(18).length == 0) {
                             return@flatMap Observable.error<LearnResponse>(NoResponseException(resources.getString(R.string.main_error_no_response)))
                         }
                     }

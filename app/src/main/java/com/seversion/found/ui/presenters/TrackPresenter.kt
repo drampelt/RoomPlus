@@ -53,7 +53,7 @@ class TrackPresenter : MvpBasePresenter<TrackView>(), AnkoLogger {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ result ->
                     info("yay")
-                    view?.setLocation(Location(result.message.substring(21)))
+                    view?.setLocation(Location(result.message.substring(18)))
                 }, { throwable ->
                     error("Problem submitting fingerprints", throwable)
                     view?.showError(throwable.message ?: resources.getString(R.string.main_error_unknown), throwable is LocationManager.NoSettingsException || throwable is LocationManager.UnknownErrorException)
