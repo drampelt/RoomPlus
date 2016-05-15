@@ -68,6 +68,8 @@
     <string name="learn.hint.location_name">Location Name</string>
     <string name="learn.action.location_add">Add</string>
     <string name="learn.action.location_add_cancel">Cancel</string>
+    <string name="learn.label.no_locations_icon_description">Magnifying glass icon</string>
+    <string name="learn.label.no_locations">No locations saved</string>
 
     <!-- Track -->
     <string name="track.label.current_location">Current Location</string>

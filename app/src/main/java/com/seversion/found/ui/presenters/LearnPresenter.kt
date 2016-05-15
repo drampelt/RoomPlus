@@ -51,12 +51,22 @@ class LearnPresenter : MvpBasePresenter<LearnView>(), LocationAdapter.SelectionL
         locations.clear()
         locations.addAll(savedLocations.map { Location(it) })
         view?.setLocations(locations)
+        if (locations.size == 0) {
+            view?.showEmptyState()
+        } else {
+            view?.showList()
+        }
     }
 
     fun addLocation(name: String) {
         if (name != "") {
             locations.add(Location(name))
             view?.setLocations(locations)
+            if (locations.size == 0) {
+                view?.showEmptyState()
+            } else {
+                view?.showList()
+            }
             saveLocations()
         }
     }

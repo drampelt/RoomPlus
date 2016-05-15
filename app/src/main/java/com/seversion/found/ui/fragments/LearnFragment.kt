@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import com.hannesdorfmann.mosby.mvp.MvpFragment
@@ -52,6 +53,16 @@ class LearnFragment : MvpFragment<LearnView, LearnPresenter>(), LearnView, Fragm
     override fun setLocations(locations: List<Location>) {
         locationAdapter?.items = locations
         locationAdapter?.notifyDataSetChanged()
+    }
+
+    override fun showList() {
+        emptyState.visibility = View.INVISIBLE
+        recyclerView.visibility = View.VISIBLE
+    }
+
+    override fun showEmptyState() {
+        recyclerView.visibility = View.INVISIBLE
+        emptyState.visibility = View.VISIBLE
     }
 
     override fun showError(error: String, showSettings: Boolean) {

@@ -8,4 +8,6 @@ import com.seversion.found.data.models.Location
 
 interface LearnView : FingerprintingView {
     fun setLocations(locations: List<Location>)
+    fun showList()
+    fun showEmptyState()
 }
