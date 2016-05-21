@@ -70,6 +70,7 @@
     <string name="learn.action.location_add_cancel">Cancel</string>
     <string name="learn.label.no_locations_icon_description">Magnifying glass icon</string>
     <string name="learn.label.no_locations">No locations saved</string>
+    <string name="learn.label.no_locations_instructions">Add one and tap it to start learning</string>
     <string name="learn.label.delete_confirm">Are you sure you want to delete \"%1$s\"?</string>
     <string name="learn.label.delete_confirm_yes">Yes</string>
     <string name="learn.label.delete_confirm_no">No</string>
