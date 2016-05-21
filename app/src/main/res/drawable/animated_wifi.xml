@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/ic_wifi"
+    >
+
+    <target
+        android:name="wave_three"
+        android:animation="@animator/pulse_wave_three"
+        />
+
+    <target
+        android:name="wave_two"
+        android:animation="@animator/pulse_wave_two"
+        />
+
+    <target
+        android:name="wave_one"
+        android:animation="@animator/pulse_wave_one"
+        />
+
+</animated-vector>

@@ -2,6 +2,7 @@
 <android.support.design.widget.CoordinatorLayout
     android:id="@+id/root"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -33,8 +34,8 @@
             android:layout_marginBottom="32dp"
             android:layout_marginTop="32dp"
             android:contentDescription="@string/welcome.label.globe_icon_description"
-            android:src="@drawable/ic_globe"
             android:tint="@color/white"
+            app:srcCompat="@drawable/ic_globe"
             />
 
         <TextView
@@ -94,8 +95,8 @@
             android:contentDescription="@string/welcome.label.group_icon_description"
             android:scaleX="0.7"
             android:scaleY="0.7"
-            android:src="@drawable/ic_person_large"
             android:tint="@color/white"
+            app:srcCompat="@drawable/ic_person_large"
             tools:alpha="0.8"
             tools:visibility="visible"
             />
@@ -106,8 +107,8 @@
             android:contentDescription="@string/welcome.label.group_icon_description"
             android:scaleX="0.7"
             android:scaleY="0.7"
-            android:src="@drawable/ic_person_large"
             android:tint="@color/white"
+            app:srcCompat="@drawable/ic_person_large"
             tools:alpha="0.8"
             tools:visibility="visible"
             />
@@ -123,8 +124,8 @@
         android:contentDescription="@string/welcome.label.person_icon_description"
         android:scaleX="0.7"
         android:scaleY="0.7"
-        android:src="@drawable/ic_person_large"
         android:tint="@color/white"
+        app:srcCompat="@drawable/ic_person_large"
         tools:scaleX="1"
         tools:scaleY="1"
         tools:visibility="visible"
@@ -240,8 +241,8 @@
             android:layout_marginBottom="32dp"
             android:layout_marginTop="32dp"
             android:contentDescription="@string/welcome.label.check_icon_description"
-            android:src="@drawable/ic_check_large"
             android:tint="@color/white"
+            app:srcCompat="@drawable/ic_check_large"
             />
 
         <TextView
@@ -300,8 +301,6 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="64dp"
             android:contentDescription="@string/welcome.label.logo_image_description"
-            android:src="@drawable/ic_launcher"
-            android:tint="@color/turquoise_blue"
             />
 
         <TextView
@@ -335,8 +334,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
         android:layout_margin="16dp"
-        android:src="@drawable/ic_forward"
         android:tint="@color/white"
+        app:srcCompat="@drawable/ic_forward"
         tools:ignore="RtlHardcoded"
         />
 

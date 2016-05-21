@@ -9,6 +9,8 @@ import android.content.pm.PackageManager
 import android.graphics.Paint
 import android.os.Bundle
 import android.support.design.widget.Snackbar
+import android.support.graphics.drawable.AnimatedVectorDrawableCompat
+import android.support.graphics.drawable.VectorDrawableCompat
 import android.support.v4.content.ContextCompat
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
@@ -52,12 +54,12 @@ class WelcomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val welcomeSeen = sharedPreferences.getBoolean(resources.getString(R.string.settings_key_welcome_seen), false)
-        if (welcomeSeen) {
-            startActivity<MainActivity>()
-            finish()
-            return
-        }
+//        val welcomeSeen = sharedPreferences.getBoolean(resources.getString(R.string.settings_key_welcome_seen), false)
+//        if (welcomeSeen) {
+//            startActivity<MainActivity>()
+//            finish()
+//            return
+//        }
 
         setContentView(R.layout.activity_welcome_wowo)
 
@@ -218,6 +220,9 @@ class WelcomeActivity : AppCompatActivity() {
     }
 
     private fun setupLogoAnimation() {
+        val logoDrawable = AnimatedVectorDrawableCompat.create(this, R.drawable.animated_logo)
+        logo.setImageDrawable(logoDrawable)
+        logoDrawable?.start()
         val logoAnimation = ViewAnimation(logo)
         val globeOffsetX = WoWoUtil.dp2px(16, this).toFloat()
         val globeOffsetY = -screenH / 2 + WoWoUtil.dp2px(40 + 64 + 64 + 32 + 10, this) // 1/2 icon size + centered offset + 1/2 globe size + globe margin + extra

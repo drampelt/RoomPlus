@@ -3,6 +3,7 @@ package com.seversion.found.ui.fragments
 import android.content.Context
 import android.os.Bundle
 import android.support.design.widget.Snackbar
+import android.support.graphics.drawable.AnimatedVectorDrawableCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
@@ -51,7 +52,7 @@ class LearnFragment : MvpFragment<LearnView, LearnPresenter>(), LearnView, Fragm
 
         inputMethodManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
 
-        locationAdapter = LocationAdapter(presenter)
+        locationAdapter = LocationAdapter(presenter, AnimatedVectorDrawableCompat.create(context, R.drawable.animated_wifi))
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = locationAdapter
 

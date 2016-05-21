@@ -9,11 +9,12 @@
     android:orientation="vertical"
     >
 
-    <ProgressBar
+    <ImageView
         android:id="@+id/progress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:indeterminate="true"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@string/track.label.wifi_description"
         />
 
     <TextView

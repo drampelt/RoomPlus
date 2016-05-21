@@ -34,17 +34,18 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/name"
             android:layout_toLeftOf="@+id/progress"
-            android:text="Learning... Tap again to stop"
+            android:text="@string/learn.label.learning"
             android:visibility="gone"
             tools:ignore="RtlHardcoded"
             />
 
-        <ProgressBar
+        <ImageView
             android:id="@+id/progress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_alignParentRight="true"
-            android:indeterminate="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/learn.label.wifi_description"
             android:visibility="gone"
             tools:ignore="RtlHardcoded"
             />

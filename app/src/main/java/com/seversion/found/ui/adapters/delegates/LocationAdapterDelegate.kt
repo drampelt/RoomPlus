@@ -34,6 +34,7 @@ class LocationAdapterDelegate(val locationAdapter: LocationAdapter) : AbsListIte
                 name.text = location.name
                 learningText.visibility = if (selected) View.VISIBLE else View.GONE
                 progress.visibility = if (selected) View.VISIBLE else View.GONE
+                progress.setImageDrawable(locationAdapter.animatedDrawable)
 
                 onClick { locationAdapter.toggle(location) }
                 onLongClick {

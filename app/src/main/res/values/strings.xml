@@ -75,12 +75,15 @@
     <string name="learn.label.delete_confirm">Are you sure you want to delete \"%1$s\"?</string>
     <string name="learn.label.delete_confirm_yes">Yes</string>
     <string name="learn.label.delete_confirm_no">No</string>
+    <string name="learn.label.wifi_description">WiFi animation</string>
+    <string name="learn.label.learning">Learning… Tap again to stop</string>
 
     <!-- Track -->
     <string name="track.label.current_location">Current Location</string>
     <string name="track.label.determining">Determining…</string>
     <string name="track.label.try_again">Try Again</string>
     <string name="track.label.error">Error</string>
+    <string name="track.label.wifi_description">WiFi animation</string>
 
     <!-- Edit Event -->
     <string name="edit_event.label.enter">enter</string>

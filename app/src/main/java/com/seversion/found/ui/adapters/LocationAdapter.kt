@@ -1,6 +1,7 @@
 package com.seversion.found.ui.adapters
 
 import android.app.Activity
+import android.support.graphics.drawable.AnimatedVectorDrawableCompat
 import com.hannesdorfmann.adapterdelegates2.ListDelegationAdapter
 import com.seversion.found.data.models.Location
 import com.seversion.found.ui.adapters.delegates.LocationAdapterDelegate
@@ -9,7 +10,7 @@ import com.seversion.found.ui.adapters.delegates.LocationAdapterDelegate
  * Created by Daniel on 2016-04-18.
  */
 
-class LocationAdapter(val selectionListener: SelectionListener) : ListDelegationAdapter<List<Location>>() {
+class LocationAdapter(val selectionListener: SelectionListener, var animatedDrawable: AnimatedVectorDrawableCompat?) : ListDelegationAdapter<List<Location>>() {
 
     private var selectedIndex = -1
 
@@ -27,11 +28,13 @@ class LocationAdapter(val selectionListener: SelectionListener) : ListDelegation
         if (oldIndex == selectedIndex && selectedIndex >= 0) {
             selectedIndex = -1
             selectionListener.onDeselect()
+            animatedDrawable?.stop()
         } else {
             if (!selectionListener.onSelect(location)) {
                 selectedIndex = oldIndex
                 return
             }
+            animatedDrawable?.start()
             notifyItemChanged(selectedIndex)
         }
         notifyItemChanged(oldIndex)

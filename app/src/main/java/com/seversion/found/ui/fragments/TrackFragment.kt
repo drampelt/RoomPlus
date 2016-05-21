@@ -2,6 +2,7 @@ package com.seversion.found.ui.fragments
 
 import android.os.Bundle
 import android.support.design.widget.Snackbar
+import android.support.graphics.drawable.AnimatedVectorDrawableCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,12 +29,17 @@ class TrackFragment : MvpFragment<TrackView, TrackPresenter>(), TrackView, Fragm
         fun newInstance(): TrackFragment = TrackFragment()
     }
 
+    private var animatedLoadingDrawable: AnimatedVectorDrawableCompat? = null
+
     override fun createPresenter() = TrackPresenter()
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?) = container?.inflate(R.layout.fragment_track)
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        animatedLoadingDrawable = AnimatedVectorDrawableCompat.create(context, R.drawable.animated_wifi)
+        progress.setImageDrawable(animatedLoadingDrawable)
 
         tryAgain.onClick { presenter.startTracking() }
     }
@@ -67,12 +73,14 @@ class TrackFragment : MvpFragment<TrackView, TrackPresenter>(), TrackView, Fragm
 
     override fun disableTracking() {
         progress.visibility = View.INVISIBLE
+        animatedLoadingDrawable?.stop()
         tryAgain.visibility = View.VISIBLE
         currentLocation.text = resources.getString(R.string.track_label_error)
     }
 
     override fun enableTracking() {
         progress.visibility = View.VISIBLE
+        animatedLoadingDrawable?.start()
         tryAgain.visibility = View.INVISIBLE
         currentLocation.text = resources.getString(R.string.track_label_determining)
     }
