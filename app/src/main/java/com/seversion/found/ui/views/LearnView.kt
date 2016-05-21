@@ -10,4 +10,5 @@ interface LearnView : FingerprintingView {
     fun setLocations(locations: List<Location>)
     fun showList()
     fun showEmptyState()
+    fun showDeleteConfirm(location: Location)
 }

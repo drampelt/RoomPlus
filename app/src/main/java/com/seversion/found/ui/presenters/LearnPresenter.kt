@@ -71,6 +71,18 @@ class LearnPresenter : MvpBasePresenter<LearnView>(), LocationAdapter.SelectionL
         }
     }
 
+    fun confirmDelete(location: Location) {
+        locations.remove(location)
+        view?.setLocations(locations)
+        if (locations.size == 0) {
+            view?.showEmptyState()
+        } else {
+            view?.showList()
+        }
+        saveLocations()
+        firebaseAnalytics.logEvent("delete_location")
+    }
+
     override fun onSelect(location: Location): Boolean {
         onDeselect()
 
@@ -94,6 +106,10 @@ class LearnPresenter : MvpBasePresenter<LearnView>(), LocationAdapter.SelectionL
 
     override fun onDeselect() {
         compositeSubscription.clear()
+    }
+
+    override fun onDelete(location: Location) {
+        view?.showDeleteConfirm(location)
     }
 
     private fun saveLocations() {

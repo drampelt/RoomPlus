@@ -45,8 +45,13 @@ class LocationAdapter(val selectionListener: SelectionListener) : ListDelegation
         }
     }
 
+    fun delete(location: Location) {
+        selectionListener.onDelete(location)
+    }
+
     interface SelectionListener {
         fun onSelect(location: Location): Boolean
         fun onDeselect()
+        fun onDelete(location: Location)
     }
 }

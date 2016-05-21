@@ -10,6 +10,7 @@ import com.seversion.found.data.models.Location
 import com.seversion.found.inflate
 import com.seversion.found.ui.adapters.LocationAdapter
 import org.jetbrains.anko.onClick
+import org.jetbrains.anko.onLongClick
 
 /**
  * Created by Daniel on 2016-04-18.
@@ -35,6 +36,10 @@ class LocationAdapterDelegate(val locationAdapter: LocationAdapter) : AbsListIte
                 progress.visibility = if (selected) View.VISIBLE else View.GONE
 
                 onClick { locationAdapter.toggle(location) }
+                onLongClick {
+                    locationAdapter.delete(location)
+                    return@onLongClick true
+                }
             }
         }
     }

@@ -76,6 +76,15 @@ class LearnFragment : MvpFragment<LearnView, LearnPresenter>(), LearnView, Fragm
         locationAdapter?.deselect()
     }
 
+    override fun showDeleteConfirm(location: Location) {
+        alert(resources.getString(R.string.learn_label_delete_confirm, location.name)) {
+            positiveButton(R.string.learn_label_delete_confirm_yes) {
+                presenter.confirmDelete(location)
+            }
+            negativeButton(R.string.learn_label_delete_confirm_no)
+        }.show()
+    }
+
     override fun onPauseFragment() {
         locationAdapter?.deselect()
     }
