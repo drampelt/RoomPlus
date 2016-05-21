@@ -1,11 +1,13 @@
 package com.seversion.found.ui.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import com.hannesdorfmann.mosby.mvp.MvpFragment
 import kotlinx.android.synthetic.main.fragment_learn.*
@@ -21,6 +23,8 @@ import com.seversion.found.ui.views.LearnView
 import org.jetbrains.anko.*
 import org.jetbrains.anko.support.v4.alert
 import org.jetbrains.anko.support.v4.startActivity
+import rx.Observable
+import java.util.concurrent.TimeUnit
 
 /**
  * Created by Daniel on 2016-04-18.
@@ -29,6 +33,8 @@ import org.jetbrains.anko.support.v4.startActivity
 class LearnFragment : MvpFragment<LearnView, LearnPresenter>(), LearnView, FragmentLifecycle, MainActivity.FabHandler, AnkoLogger {
 
     private var locationAdapter: LocationAdapter? = null
+
+    private var inputMethodManager: InputMethodManager? = null
 
     companion object {
         fun newInstance(): LearnFragment {
@@ -42,6 +48,8 @@ class LearnFragment : MvpFragment<LearnView, LearnPresenter>(), LearnView, Fragm
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        inputMethodManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
 
         locationAdapter = LocationAdapter(presenter)
         recyclerView.layoutManager = LinearLayoutManager(context)
@@ -111,5 +119,10 @@ class LearnFragment : MvpFragment<LearnView, LearnPresenter>(), LearnView, Fragm
             }
             negativeButton(resources.getString(R.string.learn_action_location_add_cancel))
         }.show()
+
+        Observable.timer(500, TimeUnit.MILLISECONDS)
+            .subscribe {
+                inputMethodManager?.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, 0)
+            }
     }
 }
