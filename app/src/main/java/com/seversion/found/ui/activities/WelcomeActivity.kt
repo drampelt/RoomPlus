@@ -6,7 +6,7 @@ import android.animation.ValueAnimator
 import android.content.Context
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
-import android.content.res.Resources
+import android.graphics.Paint
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v4.content.ContextCompat
@@ -24,6 +24,7 @@ import com.nightonke.wowoviewpager.Eases.EaseType
 import com.seversion.found.FoundApplication
 import com.seversion.found.R
 import kotlinx.android.synthetic.main.activity_welcome_wowo.*
+import org.jetbrains.anko.browse
 import org.jetbrains.anko.onClick
 import org.jetbrains.anko.startActivity
 import javax.inject.Inject
@@ -74,6 +75,7 @@ class WelcomeActivity : AppCompatActivity() {
         setupUsernamePageAnimation()
         setupGroupPageAnimation()
         setupPermissionPageAnimation()
+        setupUsernameGroupIconAnimation()
     }
 
     private fun setupWoWo() {
@@ -127,6 +129,9 @@ class WelcomeActivity : AppCompatActivity() {
         letsGo.onClick { animatePageSwitch() }
         fab.onClick { animatePageSwitch() }
         completionButton.onClick { validateInput() }
+
+        findInformation.paintFlags = findInformation.paintFlags or Paint.UNDERLINE_TEXT_FLAG
+        findInformation.onClick { browse("https://github.com/schollz/find") }
 
         // Permission check
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
@@ -387,6 +392,81 @@ class WelcomeActivity : AppCompatActivity() {
                 true
         ))
         wowo.addAnimation(animation)
+    }
+
+    private fun setupUsernameGroupIconAnimation() {
+        val iconOffset = WoWoUtil.dp2px(-24, this).toFloat()
+        val usernameIconAnimation = ViewAnimation(usernameIcon)
+        usernameIconAnimation.addPageAnimaition(WoWoTranslationAnimation(
+                0, 0f, 1f,
+                screenW,
+                usernameIcon.translationY,
+                0f,
+                usernameIcon.translationY,
+                EaseType.Linear,
+                true
+        ))
+        usernameIconAnimation.addPageAnimaition(WoWoTranslationAnimation(
+                1, 0f, 1f,
+                screenW,
+                usernameIcon.translationY,
+                -screenW,
+                usernameIcon.translationY,
+                EaseType.Linear,
+                true
+        ))
+        usernameIconAnimation.addPageAnimaition(WoWoScaleAnimation(
+                2, 0f, 1f,
+                1.3f,
+                1.3f,
+                EaseType.Linear,
+                true
+        ))
+        usernameIconAnimation.addPageAnimaition(WoWoTranslationAnimation(
+                2, 0f, 1f,
+                0f,
+                usernameIcon.translationY,
+                0f,
+                iconOffset,
+                EaseType.Linear,
+                true
+        ))
+        usernameIconAnimation.addPageAnimaition(WoWoTranslationAnimation(
+                3, 0f, 1f,
+                0f,
+                iconOffset,
+                -screenW,
+                iconOffset,
+                EaseType.Linear,
+                true
+        ))
+        wowo.addAnimation(usernameIconAnimation)
+
+        val groupIconAnimation = ViewAnimation(groupIcons)
+        groupIconAnimation.addPageAnimaition(WoWoAlphaAnimation(
+                0, 0f, 1f,
+                0f,
+                0f,
+                EaseType.Linear,
+                true
+        ))
+        groupIconAnimation.addPageAnimaition(WoWoAlphaAnimation(
+                2, 0f, 1f,
+                0f,
+                0.8f,
+                EaseType.Linear,
+                true
+        ))
+        groupIconAnimation.addPageAnimaition(WoWoTranslationAnimation(
+                3, 0f, 1f,
+                0f,
+                groupPage.translationY,
+                -screenW,
+                groupPage.translationY,
+                EaseType.Linear,
+                true
+        ))
+        wowo.addAnimation(groupIconAnimation)
     }
 
     private fun animatePageSwitch(pages: Int = 1) {

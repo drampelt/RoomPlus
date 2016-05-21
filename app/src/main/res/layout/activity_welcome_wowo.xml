@@ -64,9 +64,71 @@
             android:textSize="16sp"
             />
 
+        <TextView
+            android:id="@+id/findInformation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="@string/weclome.label.find_information"
+            android:textColor="@color/white"
+            />
+
     </LinearLayout>
 
     <!-- Third Screen -->
+
+    <LinearLayout
+        android:id="@+id/groupIcons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginBottom="32dp"
+        android:layout_marginTop="64dp"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:contentDescription="@string/welcome.label.group_icon_description"
+            android:scaleX="0.7"
+            android:scaleY="0.7"
+            android:src="@drawable/ic_person_large"
+            android:tint="@color/white"
+            tools:alpha="0.8"
+            tools:visibility="visible"
+            />
+
+        <ImageView
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:contentDescription="@string/welcome.label.group_icon_description"
+            android:scaleX="0.7"
+            android:scaleY="0.7"
+            android:src="@drawable/ic_person_large"
+            android:tint="@color/white"
+            tools:alpha="0.8"
+            tools:visibility="visible"
+            />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/usernameIcon"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginBottom="32dp"
+        android:layout_marginTop="64dp"
+        android:contentDescription="@string/welcome.label.person_icon_description"
+        android:scaleX="0.7"
+        android:scaleY="0.7"
+        android:src="@drawable/ic_person_large"
+        android:tint="@color/white"
+        tools:scaleX="1"
+        tools:scaleY="1"
+        tools:visibility="visible"
+        />
 
     <LinearLayout
         android:id="@+id/usernamePage"
@@ -74,18 +136,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="32dp"
-        tools:visibility="invisible"
+        tools:visibility="visible"
         >
 
-        <ImageView
+        <View
             android:layout_width="128dp"
             android:layout_height="128dp"
-            android:layout_gravity="center_horizontal"
             android:layout_marginBottom="32dp"
             android:layout_marginTop="32dp"
-            android:contentDescription="@string/welcome.label.person_icon_description"
-            android:src="@drawable/ic_person_large"
-            android:tint="@color/white"
             />
 
         <TextView
@@ -117,7 +175,7 @@
 
     </LinearLayout>
 
-    <!-- Third Screen -->
+    <!-- Fourth Screen -->
 
     <LinearLayout
         android:id="@+id/groupPage"
@@ -128,15 +186,11 @@
         tools:visibility="invisible"
         >
 
-        <ImageView
+        <View
             android:layout_width="128dp"
             android:layout_height="128dp"
-            android:layout_gravity="center_horizontal"
             android:layout_marginBottom="32dp"
             android:layout_marginTop="32dp"
-            android:contentDescription="@string/welcome.label.group_icon_description"
-            android:src="@drawable/ic_group_large"
-            android:tint="@color/white"
             />
 
         <TextView
@@ -176,7 +230,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="32dp"
-        tools:visibility="visible"
+        tools:visibility="invisible"
         >
 
         <ImageView

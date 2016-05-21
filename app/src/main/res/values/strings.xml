@@ -10,6 +10,7 @@
 
     <string name="welcome.label.globe_icon_description">Globe icon</string>
     <string name="welcome.label.server_address_description">Not sure what this is or want to use the public FIND server? No problem, just leave this blank.</string>
+    <string name="weclome.label.find_information">Want to learn more about FIND or run a private server?</string>
 
     <string name="welcome.label.person_icon_description">Person icon</string>
     <string name="welcome.label.username_description">How do you want to identify yourself to the server?</string>
