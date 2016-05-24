@@ -1,7 +1,7 @@
 <resources>
 
     <!-- App -->
-    <string name="app.label.name">Found</string>
+    <string name="app.label.name">Room+</string>
 
     <!-- Welcome -->
     <string name="welcome.label.logo_image_description">Pin logo</string>

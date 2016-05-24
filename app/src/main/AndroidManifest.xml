@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.seversion.found"
+<manifest package="com.seversion.roomplus"
           xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
     >
@@ -12,13 +12,13 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
-        android:name=".FoundApplication"
-        android:allowBackup="true"
+        android:name=".RoomPlusApplication"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app.label.name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:replace="android:label"
+        tools:replace="android:label, android:allowBackup"
         >
 
         <activity
