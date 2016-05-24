@@ -209,7 +209,7 @@ class WelcomeActivity : AppCompatActivity() {
         backgroundAnimation.addPageAnimaition(WoWoBackgroundColorAnimation(
                 3, 0f, 1f,
                 ContextCompat.getColor(this, R.color.turquoise_blue),
-                ContextCompat.getColor(this, R.color.aquamarine),
+                ContextCompat.getColor(this, R.color.java),
                 ColorChangeType.RGB,
                 EaseType.EaseInOutSine,
                 true
