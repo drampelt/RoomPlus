@@ -77,6 +77,7 @@
     <string name="learn.label.delete_confirm_no">No</string>
     <string name="learn.label.wifi_description">WiFi animation</string>
     <string name="learn.label.learning">Learning… Tap again to stop</string>
+    <string name="learn.label.learn_hint">Great! Now tap the location to start learning. The longer the better - 1 to 2 minutes is a good amount.</string>
 
     <!-- Track -->
     <string name="track.label.current_location">Current Location</string>

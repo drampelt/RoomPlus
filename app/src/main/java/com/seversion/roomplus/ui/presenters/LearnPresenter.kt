@@ -60,13 +60,12 @@ class LearnPresenter : MvpBasePresenter<LearnView>(), LocationAdapter.SelectionL
 
     fun addLocation(name: String) {
         if (name != "") {
+            if (locations.size == 0) {
+                view?.showHint(resources.getString(R.string.learn_label_learn_hint))
+            }
             locations.add(Location(name))
             view?.setLocations(locations)
-            if (locations.size == 0) {
-                view?.showEmptyState()
-            } else {
-                view?.showList()
-            }
+            view?.showList()
             saveLocations()
         }
     }

@@ -11,4 +11,5 @@ interface LearnView : FingerprintingView {
     fun showList()
     fun showEmptyState()
     fun showDeleteConfirm(location: Location)
+    fun showHint(text: String)
 }

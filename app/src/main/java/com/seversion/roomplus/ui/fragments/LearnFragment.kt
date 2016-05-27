@@ -94,6 +94,10 @@ class LearnFragment : MvpFragment<LearnView, LearnPresenter>(), LearnView, Fragm
         }.show()
     }
 
+    override fun showHint(text: String) {
+        Snackbar.make(root, text, Snackbar.LENGTH_INDEFINITE).show()
+    }
+
     override fun onPauseFragment() {
         locationAdapter?.deselect()
     }
