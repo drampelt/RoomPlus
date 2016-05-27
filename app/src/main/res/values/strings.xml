@@ -34,6 +34,8 @@
     <string name="settings.key.welcome_seen">welcome_seen</string>
     <string name="settings.key.locations">locations</string>
 
+    <string name="settings.label.title">Settings</string>
+
     <string name="settings.key.server_settings">server_settings</string>
     <string name="settings.label.server_settings">Server Settings</string>
 

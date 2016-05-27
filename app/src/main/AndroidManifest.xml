@@ -13,7 +13,7 @@
 
     <application
         android:name=".RoomPlusApplication"
-        android:allowBackup="false"
+        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app.label.name"
         android:supportsRtl="true"
@@ -42,7 +42,7 @@
 
         <activity
             android:name=".ui.activities.SettingsActivity"
-            android:label="Settings"
+            android:label="@string/settings.label.title"
             />
     </application>
 
