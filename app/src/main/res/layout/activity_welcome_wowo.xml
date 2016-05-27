@@ -87,6 +87,7 @@
         android:layout_marginBottom="32dp"
         android:layout_marginTop="64dp"
         android:orientation="horizontal"
+        tools:visibility="invisible"
         >
 
         <ImageView
@@ -98,7 +99,6 @@
             android:tint="@color/white"
             app:srcCompat="@drawable/ic_person_large"
             tools:alpha="0.8"
-            tools:visibility="visible"
             />
 
         <ImageView
@@ -110,7 +110,6 @@
             android:tint="@color/white"
             app:srcCompat="@drawable/ic_person_large"
             tools:alpha="0.8"
-            tools:visibility="visible"
             />
     </LinearLayout>
 
@@ -128,7 +127,7 @@
         app:srcCompat="@drawable/ic_person_large"
         tools:scaleX="1"
         tools:scaleY="1"
-        tools:visibility="visible"
+        tools:visibility="invisible"
         />
 
     <LinearLayout
@@ -137,7 +136,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="32dp"
-        tools:visibility="visible"
+        tools:visibility="invisible"
         >
 
         <View
@@ -283,7 +282,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
-        tools:visibility="invisible"
+        tools:visibility="visible"
         >
 
         <View
@@ -301,6 +300,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="64dp"
             android:contentDescription="@string/welcome.label.logo_image_description"
+            tools:src="@drawable/ic_launcher"
             />
 
         <TextView
@@ -317,13 +317,28 @@
             android:textSize="24sp"
             />
 
-        <Button
-            android:id="@+id/letsGo"
+        <TextView
+            android:id="@+id/swipeHint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/welcomeText"
             android:layout_centerHorizontal="true"
-            android:text="@string/welcome.label.lets_go"
+            android:text="@string/welcome.label.swipe"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            />
+
+        <ImageView
+            android:id="@+id/swipeHintIcon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_below="@+id/welcomeText"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="-3dp"
+            android:layout_toRightOf="@+id/swipeHint"
+            android:contentDescription="@string/welcome.label.swipe_icon_description"
+            app:srcCompat="@drawable/ic_forward"
+            tools:ignore="RtlHardcoded"
             />
 
     </RelativeLayout>
@@ -334,7 +349,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
         android:layout_margin="16dp"
-        android:tint="@color/white"
         app:srcCompat="@drawable/ic_forward"
         tools:ignore="RtlHardcoded"
         />

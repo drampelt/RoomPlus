@@ -6,7 +6,8 @@
     <!-- Welcome -->
     <string name="welcome.label.logo_image_description">Pin logo</string>
     <string name="welcome.label.intro">You\'ll be tracking indoor location very soon! We just need a few details.</string>
-    <string name="welcome.label.lets_go">Let\'s go</string>
+    <string name="welcome.label.swipe">Swipe to continue</string>
+    <string name="welcome.label.swipe_icon_description">Right arrow icon</string>
 
     <string name="welcome.label.globe_icon_description">Globe icon</string>
     <string name="welcome.label.server_address_description">Not sure what this is or want to use the public FIND server? No problem, just leave this blank.</string>

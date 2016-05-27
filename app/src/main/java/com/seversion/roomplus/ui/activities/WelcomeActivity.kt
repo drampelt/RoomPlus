@@ -96,11 +96,20 @@ class WelcomeActivity : AppCompatActivity() {
                     3 -> group.requestFocus()
                 }
 
+                val text = when (position) {
+                    1 -> serverAddress.text.toString()
+                    2 -> username.text.toString()
+                    3 -> group.text.toString()
+                    else -> ""
+                }
+
                 when (position) {
                     0, 4 -> fab.hide()
                     else -> {
                         fab.show()
-                        inputMethodManager?.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, 0)
+                        if (text.length == 0) {
+                            inputMethodManager?.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, 0)
+                        }
                     }
                 }
             }
@@ -126,7 +135,6 @@ class WelcomeActivity : AppCompatActivity() {
         username.setText(sharedPreferences.getString(resources.getString(R.string.settings_key_username), ""), TextView.BufferType.EDITABLE)
         group.setText(sharedPreferences.getString(resources.getString(R.string.settings_key_group), ""), TextView.BufferType.EDITABLE)
 
-        letsGo.onClick { animatePageSwitch() }
         fab.onClick { animatePageSwitch() }
         completionButton.onClick { validateInput() }
 
@@ -265,17 +273,29 @@ class WelcomeActivity : AppCompatActivity() {
         ))
         wowo.addAnimation(textAnimation)
 
-        val buttonAnimation = ViewAnimation(letsGo)
-        buttonAnimation.addPageAnimaition(WoWoTranslationAnimation(
+        val swipeHintAnimation = ViewAnimation(swipeHint)
+        swipeHintAnimation.addPageAnimaition(WoWoTranslationAnimation(
                 0, 0f, 1f,
-                letsGo.translationX,
-                letsGo.translationY,
-                letsGo.translationX,
+                swipeHint.translationX,
+                swipeHint.translationY,
+                swipeHint.translationX,
                 screenH / 2,
                 EaseType.EaseOutQuad,
                 false
         ))
-        wowo.addAnimation(buttonAnimation)
+        wowo.addAnimation(swipeHintAnimation)
+
+        val swipeHintIconAnimation = ViewAnimation(swipeHintIcon)
+        swipeHintIconAnimation.addPageAnimaition(WoWoTranslationAnimation(
+                0, 0f, 1f,
+                swipeHintIcon.translationX,
+                swipeHintIcon.translationY,
+                swipeHintIcon.translationX,
+                screenH / 2,
+                EaseType.EaseOutQuad,
+                false
+        ))
+        wowo.addAnimation(swipeHintIconAnimation)
     }
 
     private fun setupServerPageAnimation() {
