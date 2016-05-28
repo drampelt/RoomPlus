@@ -39,13 +39,13 @@ class MainActivity : AppCompatActivity() {
 
             override fun onPageSelected(position: Int) {
                 if (currentPosition != position) {
-                    val current = adapter?.instantiateItem(viewPager, currentPosition)
+                    val current = adapter?.getFragment(currentPosition)
                     if (current is FragmentLifecycle) {
                         current.onPauseFragment()
                     }
                 }
 
-                val next = adapter?.instantiateItem(viewPager, position)
+                val next = adapter?.getFragment(position)
                 if (next is FragmentLifecycle) {
                     next.onResumeFragment()
                 }
@@ -101,7 +101,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
-        val current = adapter?.instantiateItem(viewPager, currentPosition)
+        val current = adapter?.getFragment(currentPosition)
         if (current is FragmentLifecycle) {
             current.onPauseFragment()
         }
@@ -109,7 +109,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        val current = adapter?.instantiateItem(viewPager, currentPosition)
+        val current = adapter?.getFragment(currentPosition)
         if (current is FragmentLifecycle) {
             current.onResumeFragment()
         }

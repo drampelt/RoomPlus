@@ -51,11 +51,6 @@ class LearnPresenter : MvpBasePresenter<LearnView>(), LocationAdapter.SelectionL
         locations.clear()
         locations.addAll(savedLocations.map { Location(it) })
         view?.setLocations(locations)
-        if (locations.size == 0) {
-            view?.showEmptyState()
-        } else {
-            view?.showList()
-        }
     }
 
     fun addLocation(name: String) {
@@ -65,7 +60,6 @@ class LearnPresenter : MvpBasePresenter<LearnView>(), LocationAdapter.SelectionL
             }
             locations.add(Location(name))
             view?.setLocations(locations)
-            view?.showList()
             saveLocations()
         }
     }
@@ -73,11 +67,6 @@ class LearnPresenter : MvpBasePresenter<LearnView>(), LocationAdapter.SelectionL
     fun confirmDelete(location: Location) {
         locations.remove(location)
         view?.setLocations(locations)
-        if (locations.size == 0) {
-            view?.showEmptyState()
-        } else {
-            view?.showList()
-        }
         saveLocations()
     }
 

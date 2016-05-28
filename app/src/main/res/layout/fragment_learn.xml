@@ -2,7 +2,6 @@
 <FrameLayout
     android:id="@+id/root"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,42 +11,7 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="invisible"
-        tools:visibility="visible"
+        tools:listitem="@layout/list_item_location"
         />
-
-    <LinearLayout
-        android:id="@+id/emptyState"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:visibility="invisible"
-        tools:ignore="UseCompoundDrawables"
-        tools:visibility="visible"
-        >
-
-        <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:contentDescription="@string/learn.label.no_locations_icon_description"
-            android:tint="@color/dove_gray"
-            app:srcCompat="@drawable/ic_search"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/learn.label.no_locations"
-            android:textSize="18sp"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/learn.label.no_locations_instructions"
-            />
-
-    </LinearLayout>
 
 </FrameLayout>

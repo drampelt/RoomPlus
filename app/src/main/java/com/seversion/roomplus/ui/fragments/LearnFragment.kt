@@ -3,15 +3,12 @@ package com.seversion.roomplus.ui.fragments
 import android.content.Context
 import android.os.Bundle
 import android.support.design.widget.Snackbar
-import android.support.graphics.drawable.AnimatedVectorDrawableCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import com.hannesdorfmann.mosby.mvp.MvpFragment
-import kotlinx.android.synthetic.main.fragment_learn.*
 import com.seversion.roomplus.R
 import com.seversion.roomplus.data.models.Location
 import com.seversion.roomplus.inflate
@@ -21,6 +18,7 @@ import com.seversion.roomplus.ui.activities.SettingsActivity
 import com.seversion.roomplus.ui.adapters.LocationAdapter
 import com.seversion.roomplus.ui.presenters.LearnPresenter
 import com.seversion.roomplus.ui.views.LearnView
+import kotlinx.android.synthetic.main.fragment_learn.*
 import org.jetbrains.anko.*
 import org.jetbrains.anko.support.v4.alert
 import org.jetbrains.anko.support.v4.startActivity
@@ -52,7 +50,7 @@ class LearnFragment : MvpFragment<LearnView, LearnPresenter>(), LearnView, Fragm
 
         inputMethodManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
 
-        locationAdapter = LocationAdapter(presenter, AnimatedVectorDrawableCompat.create(context, R.drawable.animated_wifi))
+        locationAdapter = LocationAdapter(presenter)
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = locationAdapter
 
@@ -60,18 +58,8 @@ class LearnFragment : MvpFragment<LearnView, LearnPresenter>(), LearnView, Fragm
     }
 
     override fun setLocations(locations: List<Location>) {
-        locationAdapter?.items = locations
+        locationAdapter?.locations = locations
         locationAdapter?.notifyDataSetChanged()
-    }
-
-    override fun showList() {
-        emptyState.visibility = View.INVISIBLE
-        recyclerView.visibility = View.VISIBLE
-    }
-
-    override fun showEmptyState() {
-        recyclerView.visibility = View.INVISIBLE
-        emptyState.visibility = View.VISIBLE
     }
 
     override fun showError(error: String, showSettings: Boolean) {
