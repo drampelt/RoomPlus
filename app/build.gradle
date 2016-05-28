@@ -73,9 +73,6 @@ dependencies {
     compile 'com.hannesdorfmann.mosby:mvp:2.0.1'
     compile 'com.hannesdorfmann.mosby:viewstate:2.0.1'
 
-    // AdapterDelegates
-    compile 'com.hannesdorfmann:adapterdelegates2:2.0.0'
-
     // Welcome Screen
     compile 'com.nightonke:wowoviewpager:1.0.2'
 }
