@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.hannesdorfmann.mosby.mvp.MvpFragment
-import kotlinx.android.synthetic.main.fragment_track.*
 import com.seversion.roomplus.R
 import com.seversion.roomplus.data.models.Location
 import com.seversion.roomplus.inflate
@@ -15,6 +14,7 @@ import com.seversion.roomplus.ui.FragmentLifecycle
 import com.seversion.roomplus.ui.activities.SettingsActivity
 import com.seversion.roomplus.ui.presenters.TrackPresenter
 import com.seversion.roomplus.ui.views.TrackView
+import kotlinx.android.synthetic.main.fragment_track.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.onClick
 import org.jetbrains.anko.support.v4.startActivity
@@ -46,15 +46,15 @@ class TrackFragment : MvpFragment<TrackView, TrackPresenter>(), TrackView, Fragm
 
     override fun onDestroy() {
         super.onDestroy()
-        presenter.stopTracking()
+        presenter?.stopTracking()
     }
 
     override fun onPauseFragment() {
-        presenter.stopTracking()
+        presenter?.stopTracking()
     }
 
     override fun onResumeFragment() {
-        presenter.startTracking()
+        presenter?.startTracking()
     }
 
     override fun setLocation(location: Location) {
